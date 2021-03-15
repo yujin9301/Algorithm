@@ -56,18 +56,62 @@ public class LinkedList {
 
 		//중간 노드 삭제
 		public void deleteNode(String data) {
-			
+
+			Hnode currentNode = this.head;
+			Hnode preNode = currentNode;
+			if(currentNode != null) {
+				while(currentNode != null) {
+
+					
+					if(data.equals(currentNode.getData())) {
+                         						
+						if(currentNode.link != null) {
+							System.out.println();
+							System.out.println("삭제 노드 : "+currentNode.getData());
+							preNode.link = currentNode.link; 
+							currentNode = null;
+							break;
+
+						}else {
+							System.out.println();
+							System.out.println("삭제 노드 : "+currentNode.getData());
+							preNode.link = null;
+							
+							break;
+						}
+					}else {
+						preNode = currentNode;
+						currentNode = currentNode.link;
+					}
+				}
+			}
 			
 		}
 		//마지막 노드 삭제
 		public void deleteNode() {
 			
 			Hnode currentNode = this.head;
+			Hnode preNode = currentNode;
+
 			if(currentNode != null) {
 				while(currentNode.link != null) {
+					preNode = currentNode;
 					currentNode = currentNode.link;
 				}
-				currentNode = null;
+				preNode.link = null;
 			}
 		}
+		// 노드 탐색 - 처음부터 하나하나 탐색 해야함.
+		public void printNodeList() {
+			
+			Hnode currentNode = this.head;
+			int i = 0;
+			while(currentNode != null) {
+					System.out.print("NODE["+i+"] data=["+ currentNode.getData()+"], ");
+					currentNode = currentNode.link ;
+					i++;
+			}
+			
+		}
+
 	}

@@ -12,11 +12,11 @@ public class LinkedListMain {
         System.out.println("----------------입력 결과 보기 --------------------------");
         linkedList.printNodeList();
         
-        String str = "node data index[4]";
-
+        String str = "node data index[4]";        
         System.out.println("----------------조회 결과 보기 --------------------------");
+       
         //특정 노드 검색 
-        System.out.println(linkedList.searchNode(str).getData());
+        System.out.println("조회결과 : ["+linkedList.searchNode(str).getData()+"]");
         
         
         System.out.println("----------------삭제 결과 보기 --------------------------");

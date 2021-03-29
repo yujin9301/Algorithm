@@ -1,6 +1,5 @@
 package io.study.algorithm.list;
 
-import io.study.algorithm.list.Hnode;
 
 public class LinkedList {
 
@@ -56,37 +55,35 @@ public class LinkedList {
 
 		//중간 노드 삭제
 		public void deleteNode(String data) {
-
-			Hnode currentNode = this.head;
-			Hnode preNode = currentNode;
-			if(currentNode != null) {
-				while(currentNode != null) {
-
-					
-					if(data.equals(currentNode.getData())) {
-                         						
-						if(currentNode.link != null) {
-							System.out.println();
-							System.out.println("삭제 노드 : "+currentNode.getData());
-							preNode.link = currentNode.link; 
-							currentNode = null;
-							break;
-
-						}else {
-							System.out.println();
-							System.out.println("삭제 노드 : "+currentNode.getData());
-							preNode.link = null;
-							
-							break;
-						}
-					}else {
-						preNode = currentNode;
-						currentNode = currentNode.link;
-					}
-				}
-			}
+			Hnode preNode = head;
+			Hnode tempNode = head.link;
 			
+			if(data.equals(preNode.getData())) {
+				head = preNode.link;
+				preNode.link = null;
+			} else {
+				while(tempNode != null) {
+					
+					if(data.equals(tempNode.getData())) {
+
+						if(tempNode.link == null) {
+							preNode.link = null;
+						} else {
+							preNode.link = tempNode.link;
+							tempNode.link = null;
+						}
+						break;
+					} else {
+						preNode = tempNode;
+						tempNode = tempNode.link;
+					}
+					
+				}
+				
+			}
+				
 		}
+		
 		//마지막 노드 삭제
 		public void deleteNode() {
 			
@@ -112,6 +109,7 @@ public class LinkedList {
 					i++;
 			}
 			
+			System.out.println();
 		}
 
 	}

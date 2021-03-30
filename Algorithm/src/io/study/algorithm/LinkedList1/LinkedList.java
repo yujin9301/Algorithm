@@ -1,4 +1,4 @@
-package io.study.algorithm.list;
+package io.study.algorithm.LinkedList1;
 
 
 public class LinkedList {
@@ -98,6 +98,8 @@ public class LinkedList {
 				preNode.link = null;
 			}
 		}
+		
+		
 		// 노드 탐색 - 처음부터 하나하나 탐색 해야함.
 		public void printNodeList() {
 			

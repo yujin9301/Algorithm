@@ -1,4 +1,4 @@
-package io.study.algorithm.list;
+package io.study.algorithm.LinkedList1;
 
 public class LinkedListMain {
 

@@ -309,8 +309,18 @@ public class DoubledLinkedList {
 				p.next = next;
 				lastReturned.prev = null;
 			}
-			n.prev = p;
-			lastReturned = next.prev;
+			if(n == null) {
+				tail = p;
+				tail.next = null;
+			} else {
+				
+				n.prev = p;
+			}	
+			if(next == null) {
+				lastReturned = tail;
+			}else {				
+				lastReturned = next.prev;
+			}
 			
 			size --;
 			nextIndex --;
